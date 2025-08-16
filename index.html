@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de Contacto</title>
+  <!--
+    Trabajo Práctico - Punto 9 (HTML)
+    Esta página contiene un formulario sencillo con los campos solicitados:
+    - nombre
+    - email
+    - botón de envío
+
+    Notas:
+    - El atributo "action" apunta a la URL del Servlet (/hello) del punto 10.
+    - El método POST se utiliza para enviar de forma segura los datos al servidor.
+  -->
+  <style>
+    /* Estilos mínimos para una presentación clara (pueden eliminarse si no se permite CSS) */
+    body { font-family: Arial, Helvetica, sans-serif; margin: 2rem; }
+    form { max-width: 480px; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; }
+    label { display: block; margin-top: 0.75rem; }
+    input[type="text"], input[type="email"] {
+      width: 100%; padding: 0.5rem; border: 1px solid #ccc; border-radius: 4px;
+    }
+    button { margin-top: 1rem; padding: 0.6rem 1rem; border: none; border-radius: 6px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Formulario de Contacto</h1>
+
+  <!--
+    El "action" coincide con el mapeo del Servlet definido en web.xml (/hello).
+    Para probarlo en el contenedor, coloque este archivo en src/main/webapp/ (ya viene incluido).
+  -->
+  <form action="/hello" method="POST">
+    <!-- Campo de nombre (requerido) -->
+    <label for="nombre">Nombre</label>
+    <input id="nombre" name="nombre" type="text" required placeholder="Ej: Ana Pérez">
+
+    <!-- Campo de email (requerido) -->
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required placeholder="Ej: ana@example.com">
+
+    <!-- Botón de envío -->
+    <button type="submit">Enviar</button>
+  </form>
+</body>
+</html>
