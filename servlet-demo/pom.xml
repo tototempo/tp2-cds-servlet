@@ -15,7 +15,7 @@
   </properties>
 
   <dependencies>
-    <!-- API de Servlets. Scope 'provided' porque la provee el contenedor (Jetty/Tomcat). -->
+    <!-- API de Servlets del paquete javax. -->
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
@@ -26,7 +26,7 @@
 
   <build>
     <plugins>
-      <!-- Plugin para ejecutar con Jetty (mvn jetty:run) en un IDE online (Gitpod/Codespaces) -->
+      <!-- Plugin para ejecutar con Jetty en un IDE online En este caso se usó Gitpod. -->
       <plugin>
         <groupId>org.eclipse.jetty</groupId>
         <artifactId>jetty-maven-plugin</artifactId>

@@ -12,30 +12,25 @@ import javax.servlet.http.HttpServletResponse;
  * Trabajo Práctico - Punto 10 (Servlet)
  * Servlet mínimo que recibe datos enviados desde el formulario HTML y
  * muestra un mensaje de bienvenida con el nombre ingresado.
- *
- * Ciclo de vida (resumen):
- * - init(): se ejecuta una vez cuando el contenedor crea la instancia del Servlet.
- * - service(): atiende cada solicitud entrante (delegando en doGet/doPost según método HTTP).
- * - destroy(): se ejecuta una vez, antes de que el contenedor descarte la instancia.
- */
+*/
 @WebServlet(name = "HelloServlet", urlPatterns = {"/hello"})
 public class HelloServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+        throws ServletException, IOException {
         // Establecemos el tipo de contenido de la respuesta como HTML
         response.setContentType("text/html; charset=UTF-8");
 
         // Obtenemos el parámetro "nombre" enviado por el formulario
         String nombre = request.getParameter("nombre");
 
-        // Si por alguna razón no viene el nombre, evitamos NPE y mostramos un texto genérico
+        // Si por alguna razón no viene el nombre, mostramos un texto genérico "visitante"
         if (nombre == null || nombre.isBlank()) {
             nombre = "visitante";
         }
 
-        // Escribimos una respuesta HTML simple
+        // Respuesta HTML simple
         try (PrintWriter out = response.getWriter()) {
             out.println("<!DOCTYPE html>");
             out.println("<html lang=\"es\">");
@@ -51,7 +46,7 @@ public class HelloServlet extends HttpServlet {
         }
     }
 
-    // Implementación mínima para escapar caracteres especiales y evitar HTML injection
+    // Implementación mínima de seguridad para caracteres especiales y evitar un caso de HTML
     private String escapeHtml(String input) {
         return input
                 .replace("&", "&amp;")

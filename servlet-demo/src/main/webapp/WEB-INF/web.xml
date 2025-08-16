@@ -4,21 +4,25 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
                              http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-  <!--
-    Mapeo opcional: muchos contenedores modernos aceptan solo las anotaciones (@WebServlet).
-    Lo dejamos para compatibilidad y claridad.
+    <!--
+    Definición del Servlet.
+    El contenedor usará esta configuración para instanciarlo y gestionarlo.
   -->
   <servlet>
     <servlet-name>HelloServlet</servlet-name>
     <servlet-class>com.example.HelloServlet</servlet-class>
   </servlet>
 
+  <!--
+    Mapeo del Servlet con una URL:
+      En este caso, cualquier petición a "/hello" será procesada por HelloServlet.
+  -->
   <servlet-mapping>
     <servlet-name>HelloServlet</servlet-name>
     <url-pattern>/hello</url-pattern>
   </servlet-mapping>
 
-  <!-- Definimos index.html como página de bienvenida -->
+  <!-- Seteamos index.html como página de bienvenida -->
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
   </welcome-file-list>
